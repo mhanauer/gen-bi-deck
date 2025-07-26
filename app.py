@@ -33,10 +33,25 @@ st.markdown("""
     .pros-box {
         background-color: #d4edda;
         border: 1px solid #c3e6cb;
+        color: #155724;
     }
     .cons-box {
         background-color: #f8d7da;
         border: 1px solid #f5c6cb;
+        color: #721c24;
+    }
+    .comparison-box {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        color: #333;
+    }
+    .traditional-bi-box {
+        background-color: #e8f4fd;
+        border: 1px solid #bee5eb;
+    }
+    .generative-bi-box {
+        background-color: #e8fde8;
+        border: 1px solid #c3e6c3;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -107,21 +122,25 @@ elif section == "⚖️ Traditional vs Generative BI":
     with col1:
         st.markdown("### 📊 Traditional BI")
         st.markdown("""
-        <div style='background-color: #e8f4fd; padding: 1rem; border-radius: 0.5rem;'>
+        <div class='traditional-bi-box comparison-box'>
         
-        **Characteristics:**
-        - Pre-built dashboards and reports
-        - Fixed metrics and KPIs
-        - Requires technical skills for modifications
-        - Limited flexibility for ad-hoc queries
-        - Time-consuming development cycle
+        <strong>Characteristics:</strong>
+        <ul>
+            <li>Pre-built dashboards and reports</li>
+            <li>Fixed metrics and KPIs</li>
+            <li>Requires technical skills for modifications</li>
+            <li>Limited flexibility for ad-hoc queries</li>
+            <li>Time-consuming development cycle</li>
+        </ul>
         
-        **Workflow:**
-        1. Business defines requirements
-        2. IT/Analytics team builds dashboards
-        3. Users consume static reports
-        4. Changes require new development cycle
-        5. Often leads to "Excel export syndrome"
+        <strong>Workflow:</strong>
+        <ol>
+            <li>Business defines requirements</li>
+            <li>IT/Analytics team builds dashboards</li>
+            <li>Users consume static reports</li>
+            <li>Changes require new development cycle</li>
+            <li>Often leads to "Excel export syndrome"</li>
+        </ol>
         
         </div>
         """, unsafe_allow_html=True)
@@ -129,21 +148,25 @@ elif section == "⚖️ Traditional vs Generative BI":
     with col2:
         st.markdown("### 🚀 Generative BI")
         st.markdown("""
-        <div style='background-color: #e8fde8; padding: 1rem; border-radius: 0.5rem;'>
+        <div class='generative-bi-box comparison-box'>
         
-        **Characteristics:**
-        - Natural language queries
-        - Dynamic, on-demand analysis
-        - No coding skills required for users
-        - Infinite flexibility for exploration
-        - Instant results and iterations
+        <strong>Characteristics:</strong>
+        <ul>
+            <li>Natural language queries</li>
+            <li>Dynamic, on-demand analysis</li>
+            <li>No coding skills required for users</li>
+            <li>Infinite flexibility for exploration</li>
+            <li>Instant results and iterations</li>
+        </ul>
         
-        **Workflow:**
-        1. User asks question in plain English
-        2. AI generates appropriate analysis
-        3. Results delivered immediately
-        4. User can refine or ask follow-ups
-        5. True self-service analytics
+        <strong>Workflow:</strong>
+        <ol>
+            <li>User asks question in plain English</li>
+            <li>AI generates appropriate analysis</li>
+            <li>Results delivered immediately</li>
+            <li>User can refine or ask follow-ups</li>
+            <li>True self-service analytics</li>
+        </ol>
         
         </div>
         """, unsafe_allow_html=True)
@@ -157,25 +180,33 @@ elif section == "✅ Pros & Cons for Business":
     st.markdown("""
     <div class='pros-box'>
     
-    **1. 🔍 Superior Exploratory Analysis**
-    - Users can ask any question about their data without predefined limits
-    - Eliminates the "dashboard → Excel export → manual analysis" pattern
-    - Enables true data discovery and hypothesis testing
+    <strong>1. 🔍 Superior Exploratory Analysis</strong>
+    <ul>
+        <li>Users can ask any question about their data without predefined limits</li>
+        <li>Eliminates the "dashboard → Excel export → manual analysis" pattern</li>
+        <li>Enables true data discovery and hypothesis testing</li>
+    </ul>
     
-    **2. ⚡ Rapid Time-to-Insight**
-    - No waiting for dashboard development or modifications
-    - Questions answered in seconds, not days or weeks
-    - Iterative exploration becomes natural and efficient
+    <strong>2. ⚡ Rapid Time-to-Insight</strong>
+    <ul>
+        <li>No waiting for dashboard development or modifications</li>
+        <li>Questions answered in seconds, not days or weeks</li>
+        <li>Iterative exploration becomes natural and efficient</li>
+    </ul>
     
-    **3. 💰 Cost Efficiency**
-    - Reduces dependency on technical resources for basic analysis
-    - Minimizes redundant dashboard creation
-    - Democratizes data access across the organization
+    <strong>3. 💰 Cost Efficiency</strong>
+    <ul>
+        <li>Reduces dependency on technical resources for basic analysis</li>
+        <li>Minimizes redundant dashboard creation</li>
+        <li>Democratizes data access across the organization</li>
+    </ul>
     
-    **4. 🎯 User Empowerment**
-    - Business users can directly interrogate data
-    - No SQL or programming knowledge required
-    - Bridges the gap between business questions and technical execution
+    <strong>4. 🎯 User Empowerment</strong>
+    <ul>
+        <li>Business users can directly interrogate data</li>
+        <li>No SQL or programming knowledge required</li>
+        <li>Bridges the gap between business questions and technical execution</li>
+    </ul>
     
     </div>
     """, unsafe_allow_html=True)
@@ -185,25 +216,33 @@ elif section == "✅ Pros & Cons for Business":
     st.markdown("""
     <div class='cons-box'>
     
-    **1. 🎲 Inconsistency Risk**
-    - LLMs can generate different code for the same question
-    - Results may vary between runs (non-deterministic behavior)
-    - Critical for production environments requiring reproducibility
+    <strong>1. 🎲 Inconsistency Risk</strong>
+    <ul>
+        <li>LLMs can generate different code for the same question</li>
+        <li>Results may vary between runs (non-deterministic behavior)</li>
+        <li>Critical for production environments requiring reproducibility</li>
+    </ul>
     
-    **2. 🛡️ Quality Control**
-    - Generated code may not follow best practices
-    - Potential for inefficient or incorrect analysis
-    - Requires validation mechanisms for critical decisions
+    <strong>2. 🛡️ Quality Control</strong>
+    <ul>
+        <li>Generated code may not follow best practices</li>
+        <li>Potential for inefficient or incorrect analysis</li>
+        <li>Requires validation mechanisms for critical decisions</li>
+    </ul>
     
-    **3. 🔒 Security Concerns**
-    - Natural language queries could expose sensitive data
-    - Need robust access controls and data governance
-    - Risk of unintended data exposure through generated queries
+    <strong>3. 🔒 Security Concerns</strong>
+    <ul>
+        <li>Natural language queries could expose sensitive data</li>
+        <li>Need robust access controls and data governance</li>
+        <li>Risk of unintended data exposure through generated queries</li>
+    </ul>
     
-    **4. 📈 Scalability Questions**
-    - API costs can accumulate with heavy usage
-    - Performance considerations for large datasets
-    - Integration complexity with existing BI infrastructure
+    <strong>4. 📈 Scalability Questions</strong>
+    <ul>
+        <li>API costs can accumulate with heavy usage</li>
+        <li>Performance considerations for large datasets</li>
+        <li>Integration complexity with existing BI infrastructure</li>
+    </ul>
     
     </div>
     """, unsafe_allow_html=True)
