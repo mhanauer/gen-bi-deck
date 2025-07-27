@@ -1,8 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-from io import BytesIO
 
 # Page configuration
 st.set_page_config(page_title="Generative BI: Theory & Implementation", page_icon="📊", layout="wide")
@@ -59,50 +56,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Function to create a simple visualization for the intro
-def create_genbi_visualization():
-    fig, ax = plt.subplots(figsize=(10, 5))
-    fig.patch.set_facecolor('#f0f2f6')
-    ax.set_facecolor('#f0f2f6')
-    
-    # Create flow diagram
-    steps = ['Natural\nLanguage\nQuery', 'AI/LLM\nProcessing', 'Code\nGeneration', 'Data\nAnalysis', 'Insights &\nVisualization']
-    x_positions = np.linspace(0.1, 0.9, len(steps))
-    y_position = 0.5
-    
-    # Draw boxes and arrows
-    for i, (step, x) in enumerate(zip(steps, x_positions)):
-        # Draw box
-        box = plt.Rectangle((x-0.08, y_position-0.15), 0.16, 0.3, 
-                           fill=True, facecolor='#1f77b4', edgecolor='white', linewidth=2)
-        ax.add_patch(box)
-        
-        # Add text
-        ax.text(x, y_position, step, ha='center', va='center', 
-                fontsize=10, color='white', weight='bold')
-        
-        # Draw arrow to next box
-        if i < len(steps) - 1:
-            ax.arrow(x + 0.08, y_position, x_positions[i+1] - x - 0.16, 0,
-                    head_width=0.05, head_length=0.02, fc='#2ca02c', ec='#2ca02c')
-    
-    # Add title
-    ax.text(0.5, 0.85, 'Generative BI: From Question to Answer', 
-            ha='center', va='center', fontsize=16, weight='bold', color='#1f77b4')
-    
-    # Remove axes
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
-    ax.axis('off')
-    
-    # Convert to bytes for Streamlit
-    buf = BytesIO()
-    plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', facecolor='#f0f2f6')
-    buf.seek(0)
-    plt.close()
-    
-    return buf
-
 # Sidebar navigation
 st.sidebar.title("Navigation")
 section = st.sidebar.radio("Go to:", 
@@ -117,12 +70,6 @@ section = st.sidebar.radio("Go to:",
 if section == "🏠 Introduction":
     st.markdown("<h1 class='main-header'>Generative Business Intelligence (GenBI)</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: #666;'>Transforming Data Analysis with AI-Powered Natural Language Processing</h3>", unsafe_allow_html=True)
-    
-    col1, col2, col3 = st.columns([1,2,1])
-    with col2:
-        # Create and display the visualization
-        img_buf = create_genbi_visualization()
-        st.image(img_buf, caption="GenBI: Where Natural Language Meets Data Analysis", use_column_width=True)
     
     st.markdown("---")
     st.info("📌 **This presentation explores how Generative BI revolutionizes data analysis by allowing users to interact with data using natural language, powered by Large Language Models (LLMs) like Claude.**")
